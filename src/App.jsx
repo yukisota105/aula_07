@@ -1,16 +1,21 @@
+import { useState } from 'react';
 
 import './App.css'
-import Lista from './assets/components/evento/Lista'
+import SeuNome from './assets/components/SeuNome';
+import Saudacao from './assets/components/Saudacao';
 function App() {
-  const meusItens = ['Pera', 'Banana','Abacaxi']
+  const [nome,setNome] = useState("");
   return (
-    <>
-      <div className='App'>
-        <h1>Lista generica de frutas</h1>
-        <Lista itens = {meusItens}/>
-        <Lista itens = {[]}/>
-      </div>
-    </>
+    <div className="App">
+      <h1>state lift</h1>
+      <SeuNome setNome={setNome} />
+      
+      <Saudacao nome = {nome}/>
+
+      {nome &&(<p>
+        o Nome digitado foi: {nome}
+      </p>)}
+    </div>
   )
 }
 
